@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
-
+import "./App.css"
 import routes from "./routes/routes"
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -14,26 +14,27 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div className="container p-1">
-        <Switch>
-        <Route path={routes.login}>
-          <Login />
-        </Route>
-        <Route path={routes.signup}>
-          <Signup />
-        </Route>
-        <Route path={routes.mainpage}>
-          <Mainpage />
-        </Route>
-        <Route path={routes.dashboard}>
-          <Dashboard />
-        </Route>
-        <Route path={routes.displaytable}>
-          <Displaytable />
-        </Route>
-      </Switch>
-      </div>
-      <hr />
+      <main className="bd-masthead custom-color">
+        <div className="container ">
+          <Switch>
+            <Route exact path={routes.dashboard}>
+              <Dashboard />
+            </Route>
+            <Route path={routes.login}>
+              <Login />
+            </Route>
+            <Route path={routes.signup}>
+              <Signup />
+            </Route>
+            <Route path={routes.mainpage}>
+              <Mainpage />
+            </Route>
+            <Route path={routes.displaytable}>
+              <Displaytable />
+            </Route>
+          </Switch>
+        </div>
+        </main> 
       <Footersection />
     </div>
   );

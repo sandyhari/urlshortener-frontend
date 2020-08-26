@@ -1,0 +1,7 @@
+Link{
+    color: ivory;
+}
+
+Link:focus{
+    color: indianred;
+}

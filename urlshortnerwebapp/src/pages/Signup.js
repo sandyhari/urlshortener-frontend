@@ -2,8 +2,13 @@ import React,{useState} from "react"
 
 import { SERVER_URL } from "../APISERVERURL/SERVERURL"
 import { Spinner } from "reactstrap";
+import { useHistory } from "react-router-dom";
+import routes from "../routes/routes";
 
 const Signuppage = ()=>{
+
+  
+  const history = useHistory();
 
   const [email, setEmail] = useState("");
   const [firstname, setFirstname] = useState("");
@@ -32,7 +37,8 @@ const Signuppage = ()=>{
           body: JSON.stringify(requestBody)
         })
         .then((response) => response.json())
-        .then(() => alert("Successfully added a Post"))
+        .then(() => alert("Successfully registered"))
+        .then(()=>{history.push(routes.login)})
         .catch(() => {
           alert("Failed to register ,Check EmailAddress");
           console.error();

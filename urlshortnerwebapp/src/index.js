@@ -13,8 +13,7 @@ ReactDOM.render(
       <Router>
       <App />
     </Router>
-    </RecoilRoot>
-    
+    </RecoilRoot> 
   </React.StrictMode>,
   document.getElementById('root')
 );

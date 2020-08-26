@@ -2,7 +2,7 @@ const routes = {
     mainpage: "/api/redirect",
     login: "/user/login",
     signup: "/user/signup",
-    dashboard: "/dashboard",
+    dashboard: "/",
     displaytable: "/displaytable"
   };
   

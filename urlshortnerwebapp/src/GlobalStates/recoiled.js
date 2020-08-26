@@ -6,6 +6,11 @@ export const loggedinEmailState = atom({
 });
 
 
+export const loggedinUserid = atom({
+  key: "loggedinUserid", //key should be unique
+  default: ""
+});
+
 export const jwtState = atom({
   key: "jwtState", //key should be unique
   default: ""
