@@ -10,7 +10,6 @@ import "../styles/loginStyle.css";
 const Loginpage = ()=>{
 
   const [email, setEmail] = useRecoilState(loggedinEmailState);
-
   const SetUserId = useSetRecoilState(loggedinUserid);
   const setAccessKey = useSetRecoilState(jwtState);
   const [password, setPassword] = useState("");
@@ -93,15 +92,15 @@ return (
                         </div>
                       )}
                 </div>
-                <hr />
+            
+            <hr />
                 <div className="btn-group text-center" role="group" aria-label="Basic example">
                     <div className="p-1">
                         <button type="button" onClick={routeSignup} className="btn btn-danger text-uppercase font-weight-bold">Register</button>
                     </div>
                 </div>
-              </div>
-             
-            </form>
+                </div>
+                </form>
         </div>
       </div>
     </div>

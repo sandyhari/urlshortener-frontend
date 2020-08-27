@@ -34,7 +34,7 @@ function App() {
             </Route>
           </Switch>
         </div>
-        </main> 
+      </main> 
       <Footersection />
     </div>
   );
