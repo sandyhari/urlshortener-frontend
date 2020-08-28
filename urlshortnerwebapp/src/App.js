@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 import Displaytable from './pages/Displaytable';
 import Navbar from "./commonComponents/Navbar"
 import Footersection from './commonComponents/Footer';
+import Logout from './pages/Logout';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route path={routes.login}>
               <Login />
+            </Route>
+            <Route path={routes.logout}>
+              <Logout />
             </Route>
             <Route path={routes.signup}>
               <Signup />

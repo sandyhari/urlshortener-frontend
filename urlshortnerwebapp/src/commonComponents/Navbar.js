@@ -8,10 +8,13 @@ import {
 } from "reactstrap";
 
 import routes from "../routes/routes";
+import { useRecoilValue } from "recoil";
+import { loggedinUserid } from "../GlobalStates/recoiled";
 
 const Example = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const userid = useRecoilValue(loggedinUserid); 
+  console.log(userid);
   const toggle = () => setIsOpen(!isOpen);
 
   return (
@@ -24,14 +27,26 @@ const Example = (props) => {
             <NavLink className="nav-link text-white" to={routes.mainpage}>
               Converter
             </NavLink>
-            <NavLink className="nav-link text-white" to={routes.displaytable}>
+            {userid ?
+            (<NavLink className="nav-link text-white" to={routes.displaytable}>
               UserStats
             </NavLink>
+            ):(
+            <></>
+            )
+            }
           </Nav>
         </Collapse>
-        <NavLink className="nav-link text-white" to={routes.login}>
-              Already a member? Login
+        {!userid ? (
+          <NavLink className="nav-link text-white" to={routes.login}>
+            Login
         </NavLink>
+        ):(
+          <NavLink className="nav-link text-white" to={routes.logout}>
+            Logout
+        </NavLink>
+        )}
+        
       </Navbar>
     </div>
   );

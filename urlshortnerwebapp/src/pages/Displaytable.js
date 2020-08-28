@@ -25,8 +25,13 @@ console.log(accessToken);
       console.log(data.contents);
       setContent(data.contents);
     })
-    .catch(()=>history.push(routes.login))
-  },[]);
+    .catch(()=>{
+                console.error()
+                alert("Session has expired!")
+                history.push(routes.login)
+      })},[])
+
+
       return(
         <div>
               <div>

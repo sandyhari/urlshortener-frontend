@@ -3,39 +3,59 @@ import Chart from "chart.js";
 import { MDBContainer } from "mdbreact";
 
 
-const ChartsPage = () => {
+const ChartsPage = (props) => {
+
+  let array =[];
+  var counts = {};
+    const modifed = ()=>{
+      for(let i=0;i<props.days.length;++i){ 
+        array.push(Object.values(props.days[i]).toString().split("T")[0])
+      }
+      for (let i = 0; i < array.length; i++) {
+        let num = array[i];
+        counts[num] = counts[num] ? counts[num] + 1 : 1;
+      }
+    };
+
+modifed();
+console.log(counts);
+let dataArray = Object.values(counts);
+let dataLabels = Object.keys(counts);
+      
     useEffect(() => {
         const ctx = document.getElementById("myChart");
         new Chart(ctx, {
           type: "bar",
           data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: dataLabels,
             datasets: [
               {
-                label: "# of Votes",
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                borderWidth: 1
+                label: "No. of URLs created",
+                fillColor : "rgba(220,220,220,0.2)",
+                data: dataArray,
+                backgroundColor: "black",
+                borderColor: ["Red", "Blue", "Yellow"], //"Green", "Purple", "Orange"],
+                borderWidth: 0.3
               }
             ]
-          }
+          },responsive: true,options:{
+            scales:{
+                xAxes: [{
+                    display: false //this will remove all the x-axis grid lines
+                }]
+            }
+        }
         });
       });
 
-      useEffect(()=>{
-
-      },[])
+      
       return (
         <MDBContainer>
-          <canvas id="myChart" width="400" height="400" />
+          <div className="card">
+            <div className="card-body">
+              <canvas id="myChart" width="400" height="250" />
+            </div>
+          </div>
         </MDBContainer>
       );
 }

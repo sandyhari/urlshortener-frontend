@@ -6,7 +6,8 @@ import {loggedinUserid}  from "../GlobalStates/recoiled"
 import routes from "../routes/routes";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon } from 'mdbreact';
+import { jwtState } from "../GlobalStates/recoiled";
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol } from 'mdbreact';
 
 const Mainpage = () => {
  
@@ -14,6 +15,8 @@ const Mainpage = () => {
   const emailid = useRecoilValue(loggedinUserid);
   const [longUrl,setLongUrlinput ] = useState("");
   const [shortUrl,setShortURLfromAPI] = useState("");
+  const accessToken = useRecoilValue(jwtState);
+  console.log(accessToken);
 
   const [isLoading, setIsLoading] = useState(false);
   const setenteredUrlChange = (event) => setLongUrlinput(event.target.value);
@@ -25,6 +28,7 @@ const Mainpage = () => {
             const requestBody = { longUrl,emailid};
             fetch(`${SERVER_URL}/api/url/shorten`, {
               headers: {
+                'Authorization' : 'Bearer '+ accessToken,
                 "Content-Type": "application/json"
               },
               method: "POST",
@@ -37,9 +41,9 @@ const Mainpage = () => {
               setShortURLfromAPI(data.resultant.shortUrl);
             })
             .then(()=>alert("hurray! Succesfully generated"))
-            .catch(() => {
-              console.error();
-              alert("Not Valid URL provided!");
+            .catch((response) => {
+              console.log(response);
+              alert("Session expired..!");
               history.push(routes.login)
             })
             .finally(() => {
