@@ -45,7 +45,7 @@ const Loginpage = ()=>{
             })
               .then(res => {return res.json()})
               .then(userinfo => {
-                console.log(userinfo.customer._id)
+                console.log("user logon id:",userinfo.customer._id)
                 SetUserId(userinfo.customer._id);
               })
               .then(() => history.push(routes.displaytable))
@@ -100,7 +100,7 @@ return (
                     </div>
                 </div>
                 </div>
-                </form>
+          </form>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { jwtState } from "../GlobalStates/recoiled";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol } from 'mdbreact';
+import { useToasts } from "react-toast-notifications";
 
 const Mainpage = () => {
  
@@ -17,7 +18,7 @@ const Mainpage = () => {
   const [shortUrl,setShortURLfromAPI] = useState("");
   const accessToken = useRecoilValue(jwtState);
   console.log(accessToken);
-
+  const { addToast } = useToasts()
   const [isLoading, setIsLoading] = useState(false);
   const setenteredUrlChange = (event) => setLongUrlinput(event.target.value);
 
@@ -40,10 +41,16 @@ const Mainpage = () => {
               console.log(data.resultant.shortUrl);
               setShortURLfromAPI(data.resultant.shortUrl);
             })
-            .then(()=>alert("hurray! Succesfully generated"))
+            .then(()=>addToast("hurray!,there conversion done successfully", {
+              appearance: 'success',
+              autoDismiss: true,
+            }))
             .catch((response) => {
               console.log(response);
-              alert("Session expired..!");
+              addToast("Oops!,there seems to be a problem, re-login", {
+                appearance: 'danger',
+                autoDismiss: true,
+              });
               history.push(routes.login)
             })
             .finally(() => {

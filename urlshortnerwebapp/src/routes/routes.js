@@ -1,10 +1,10 @@
 const routes = {
     mainpage: "/api/redirect",
     login: "/user/login",
-    logout:"/user/logout",
     signup: "/user/signup",
     dashboard: "/",
-    displaytable: "/displaytable"
+    displaytable: "/displaytable",
+    logout:"/user/login/logout"
   };
   
   export default routes;

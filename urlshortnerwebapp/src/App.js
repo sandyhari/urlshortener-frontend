@@ -27,14 +27,14 @@ function App() {
             <Route exact path={routes.signup}>
               <Signup />
             </Route>
-            <Route path={routes.logout}>
-              <Logout />
-            </Route>
-            <Route path={routes.mainpage}>
+            <Route exact path={routes.mainpage}>
               <Mainpage />
             </Route>
-            <Route path={routes.displaytable}>
+            <Route exact path={routes.displaytable}>
               <Displaytable />
+            </Route>
+            <Route exact path={routes.logout}>
+              <Logout />
             </Route>
           </Switch>
         </div>

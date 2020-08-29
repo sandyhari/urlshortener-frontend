@@ -49,8 +49,8 @@ const Dashboard = () => {
                 {!loggedIN ? 
                 (
                 <>
-                <button type="button" className="btn btn-lg btn-primary font-weight-bold mb-3 mr-md-3" onClick={()=>history.push(routes.login)}>Login</button>
-                <button type="button" className="btn btn-lg btn-danger font-weight-bold mb-3" onClick={()=>history.push(routes.login)}>logon</button>
+                  <button type="button" className="btn btn-lg btn-primary font-weight-bold mb-3 mr-md-3" onClick={()=>history.push(routes.login)}>Login</button>
+                  <button type="button" className="btn btn-lg btn-danger font-weight-bold mb-3" onClick={()=>history.push(routes.signup)}>Sign UP</button>
                 </>
                 ):(
                 <></>

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn } from 'mdbreact';
 import { SERVER_URL } from "../APISERVERURL/SERVERURL"
 import { Spinner } from "reactstrap";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import routes from "../routes/routes";
 import "../styles/loginStyle.css";
 
@@ -55,7 +55,7 @@ const Signuppage = ()=>{
     };
     const { register, handleSubmit } = useForm();
     return (
-      <div classNameName="container">
+      <div className="container">
         <div className="align">
           <MDBContainer>
           <form onSubmit={handleSubmit(addUser)}>
