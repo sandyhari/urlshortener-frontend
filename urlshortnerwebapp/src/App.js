@@ -30,7 +30,6 @@ function App() {
             <Route path={routes.logout}>
               <Logout />
             </Route>
-            
             <Route path={routes.mainpage}>
               <Mainpage />
             </Route>
