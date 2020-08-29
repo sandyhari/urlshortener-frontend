@@ -21,15 +21,16 @@ function App() {
             <Route exact path={routes.dashboard}>
               <Dashboard />
             </Route>
-            <Route path={routes.login}>
+            <Route exact path={routes.login}>
               <Login />
+            </Route>
+            <Route exact path={routes.signup}>
+              <Signup />
             </Route>
             <Route path={routes.logout}>
               <Logout />
             </Route>
-            <Route path={routes.signup}>
-              <Signup />
-            </Route>
+            
             <Route path={routes.mainpage}>
               <Mainpage />
             </Route>
