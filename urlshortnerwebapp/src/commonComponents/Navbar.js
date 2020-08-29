@@ -28,12 +28,12 @@ const Example = (props) => {
               Converter
             </NavLink>
             {userid ?
-            (<NavLink className="nav-link text-white" to={routes.displaytable}>
-              UserStats
-            </NavLink>
-            ):(
-            <></>
-            )
+              (<NavLink className="nav-link text-white" to={routes.displaytable}>
+                UserStats
+              </NavLink>
+              ):(
+              <></>
+              )
             }
           </Nav>
         </Collapse>

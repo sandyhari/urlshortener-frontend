@@ -58,36 +58,6 @@ return(
     })}
   </div>
 )
-      // return(
-      //   <div>
-      //         <div>
-      //         <table classNameName="table text-white">
-      //           <thead>
-      //             <tr>
-      //               <th scope="col">#</th>
-      //               <th scope="col">urlCode</th>
-      //               <th scope="col">Long URL</th>
-      //               <th scope="col">Shortened</th>
-      //               <th scope="col">Generated at</th>
-      //             </tr>
-      //           </thead>
-      //           <tbody>
-                  
-      //             {content.map((each,eachIndex)=>{
-      //               return (<tr classNameName="font-weight-bold text-white">
-      //               <th scope="row">{eachIndex+1}</th>
-      //               <td>{each.urlCode}</td>
-      //               <td>{each.longUrl.substring(0,30)+"...."}</td>
-      //               <td><a rel="noopener noreferrer" href={each.shortUrl}>{each.shortUrl}</a></td>
-      //               <td>{each.datetime}</td>
-      //             </tr>)
-      //             })}
-                  
-      //           </tbody>
-      //         </table>
-      //         </div>
-      //       </div>
-      // )
 }
 
 export default Displaytable;
